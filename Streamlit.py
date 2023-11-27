@@ -47,17 +47,17 @@ if task == "Sentiment Classification":
 
         # Load models dynamically based on the selected option
         if model_option == "Perceptron":
-            with open(r'F:\Study\DUK\3rd Semester\Deep Learning\Code\AKS Streamlit\imdbP.pkl', 'rb') as file:
+            with open('imdbP.pkl', 'rb') as file:
                 model = pickle.load(file)
         elif model_option == "Backpropagation":
-            with open(r'F:\Study\DUK\3rd Semester\Deep Learning\Code\AKS Streamlit\imdbBP.pkl', 'rb') as file:
+            with open('imdbBP.pkl', 'rb') as file:
                 model = pickle.load(file)
         elif model_option == "DNN":
-            model = load_model(r'F:\Study\DUK\3rd Semester\Deep Learning\Code\AKS Streamlit\AKS.keras')
+            model = load_model('AKS.keras')
         elif model_option == "RNN":
-            model = load_model(r'F:\Study\DUK\3rd Semester\Deep Learning\Code\AKS Streamlit\AKSRNN.keras')
+            model = load_model('AKSRNN.keras')
         elif model_option == "LSTM":
-            model = load_model(r'F:\Study\DUK\3rd Semester\Deep Learning\Code\AKS Streamlit\AKSLSTM.keras')
+            model = load_model('AKSLSTM.keras')
 
         if st.button("Classify Sentiment"):
             result = sentiment_classification(new_review_text, model)
@@ -70,7 +70,7 @@ elif task == "Identification of Tumours":
 
     if uploaded_file is not None:
         # Load the tumor detection model
-        model = load_model(r'F:\Study\DUK\3rd Semester\Deep Learning\Code\AKS Streamlit\CNN Tumor.keras')
+        model = load_model('CNN Tumor.keras')
         st.image(uploaded_file, caption="Uploaded the Image.", use_column_width=False, width=200)
         st.write("")
 
